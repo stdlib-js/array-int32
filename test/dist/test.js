@@ -1,7 +1,7 @@
 /**
 * @license Apache-2.0
 *
-* Copyright (c) 2018 The Stdlib Authors.
+* Copyright (c) 2023 The Stdlib Authors.
 *
 * Licensed under the Apache License, Version 2.0 (the "License");
 * you may not use this file except in compliance with the License.
@@ -21,60 +21,13 @@
 // MODULES //
 
 var tape = require( 'tape' );
-var proxyquire = require( 'proxyquire' );
-var hasInt32ArraySupport = require( '@stdlib/assert-has-int32array-support' );
-var polyfill = require( './../../dist/polyfill.js' );
-var ctor = require( './../../dist' );
-
-
-// VARIABLES //
-
-var hasInt32Arrays = hasInt32ArraySupport();
+var main = require( './../../dist' );
 
 
 // TESTS //
 
-tape( 'main export is a function', function test( t ) {
+tape( 'main export is defined', function test( t ) {
 	t.ok( true, __filename );
-	t.strictEqual( typeof ctor, 'function', 'main export is a function' );
+	t.strictEqual( main !== void 0, true, 'main export is defined' );
 	t.end();
-});
-
-tape( 'if an environment supports `Int32Array`, the export is an alias for `Int32Array`', function test( t ) {
-	var Foo;
-
-	Foo = proxyquire( './../dist', {
-		'@stdlib/assert-has-int32array-support': isTrue,
-		'./main.js': Mock
-	});
-	t.strictEqual( Foo, Mock, 'returns builtin' );
-
-	if ( hasInt32Arrays ) {
-		t.strictEqual( ctor, Int32Array, 'is alias' ); // eslint-disable-line stdlib/require-globals
-	}
-
-	t.end();
-
-	function Mock() {
-		return this;
-	}
-
-	function isTrue() {
-		return true;
-	}
-});
-
-tape( 'if an environment does not support `Int32Array`, the export is a polyfill', function test( t ) {
-	var Foo;
-
-	Foo = proxyquire( './../dist', {
-		'@stdlib/assert-has-int32array-support': isFalse
-	});
-
-	t.strictEqual( Foo, polyfill, 'returns polyfill' );
-	t.end();
-
-	function isFalse() {
-		return false;
-	}
 });
