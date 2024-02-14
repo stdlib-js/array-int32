@@ -52,7 +52,7 @@ limitations under the License.
 ## Usage
 
 ```javascript
-import Int32Array from 'https://cdn.jsdelivr.net/gh/stdlib-js/array-int32@esm/index.mjs';
+import Int32Array from 'https://cdn.jsdelivr.net/gh/stdlib-js/array-int32@v0.2.0-esm/index.mjs';
 ```
 
 #### Int32Array()
@@ -1414,7 +1414,7 @@ var bool = it.next().done;
 
 import randu from 'https://cdn.jsdelivr.net/gh/stdlib-js/random-base-randu@esm/index.mjs';
 import round from 'https://cdn.jsdelivr.net/gh/stdlib-js/math-base-special-round@esm/index.mjs';
-import ctor from 'https://cdn.jsdelivr.net/gh/stdlib-js/array-int32@esm/index.mjs';
+import ctor from 'https://cdn.jsdelivr.net/gh/stdlib-js/array-int32@v0.2.0-esm/index.mjs';
 
 var arr;
 var i;
